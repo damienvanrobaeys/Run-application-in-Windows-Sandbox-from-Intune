@@ -1,0 +1,13 @@
+<Configuration>
+	<Content_Name></Content_Name>
+	<File_To_Run></File_To_Run>
+	<Silent_Switches></Silent_Switches>
+	<WSB_Location>Default</WSB_Location>
+	<Sources_Location>Default</Sources_Location>
+	<VGpu>Enable</VGpu>
+	<Networking>Enable</Networking>
+	<ReadOnlyAccess>true</ReadOnlyAccess>
+</Configuration>
+	
+	
+
