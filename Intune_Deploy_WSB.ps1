@@ -93,6 +93,7 @@ If($Sandbox_Status -eq $True)
 	Write_Log -Message_Type "INFO" -Message "Checking if the current user is member of the Hyper-V administrators group"     
 	$Get_HyperV_Group = (get-LocalGroup | Where {$_.Name -like "*Hyper-V*"}).name 
 	$Get_Current_user = (gwmi win32_computersystem).username
+	Write_Log -Message_Type "INFO" -Message "The current user is $Get_Current_user"     	
 	$Get_HyperV_Users = get-LocalGroupMember -group $Get_HyperV_Group | where {$_.Name -like "$Get_Current_user"} 
 	If($Get_HyperV_Users -eq $null)
 		{
@@ -125,7 +126,9 @@ Write_Log -Message_Type "INFO" -Message "Checking the Sandbox configuration"
 	
 If($Sandbox_WSB_Location -eq "Default")
 	{  
-		$User_Profile = $env:USERPROFILE
+		$Get_Current_user_Name = $Get_Current_user.Split("\")[1]
+		$User_Profile = "C:\Users\$Get_Current_user_Name"
+		# $User_Profile = $env:USERPROFILE
 		$User_Desktop = "$User_Profile\Desktop"
 		$Sandbox_File_Path = "$User_Desktop\$Sandbox_WSB_Name.wsb"	
 		
