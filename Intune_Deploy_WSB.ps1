@@ -146,9 +146,11 @@ Else
 	
 If($Sandbox_Sources_Location -eq "Default")
 	{
-		$User_Profile = $env:USERPROFILE
-		$User_Desktop = "$User_Profile\Desktop"
-		$Host_Folder = "$User_Desktop\$Sandbox_WSB_Name"	
+		# $User_Profile = $env:USERPROFILE
+		# $User_Desktop = "$User_Profile\Desktop"
+		# $Host_Folder = "$User_Desktop\$Sandbox_WSB_Name"			
+		$ProgData = $env:PROGRAMDATA
+		$Host_Folder = "$ProgData\$Sandbox_WSB_Name"
 		
 		Write_Log -Message_Type "INFO" -Message "Sandbox appli location is configured to: Default"     
 		Write_Log -Message_Type "INFO" -Message "The WSB file will be saved in: $Host_Folder"  		
